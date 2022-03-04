@@ -1,11 +1,15 @@
 {
   "name": "opthy-v1-core",
-  "description": "Opthy v1 core contracts and artifacts",
+  "description": "Opthy v1 core contracts wrapper",
   "version": "0.0.1",
+  "source": "index.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/opthydefi/opthy-v1-core.git"
   },
-  "license" : "BUSL-1.1",
-  "author": "Phroi (https://phroi.com/)"
+  "license": "BUSL-1.1",
+  "author": "Phroi (https://phroi.com/)",
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.1"
+  }
 }
