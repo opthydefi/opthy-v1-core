@@ -1,15 +1,19 @@
 {
   "name": "opthy-v1-core",
-  "description": "Opthy v1 core contracts wrapper",
   "version": "0.0.1",
-  "source": "index.ts",
+  "description": "Opthy v1 core contracts wrapper",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/esm/index.d.ts",
+  "scripts": {
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir lib/cjs"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/opthydefi/opthy-v1-core.git"
   },
-  "license": "BUSL-1.1",
-  "author": "Phroi (https://phroi.com/)",
-  "devDependencies": {
-    "@tsconfig/recommended": "^1.0.1"
-  }
+  "license": "GPL-3.0-or-later",
+  "author": "Phroi (https://phroi.com/)"
 }
