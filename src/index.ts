@@ -1,3 +1,4 @@
+import IERC20METADATA from "./IERC20Metadata_metadata.json";
 import OPTHY from "./Opthy_metadata.json";
 import OPTHYS from "./Opthys_metadata.json";
 
@@ -41,12 +42,17 @@ export const ERC20Whitelist = (chainId: ChainId) => {
 
 
 export enum Contracts {
+    IERC20Metadata,
     Opthy,
     Opthys
 }
 
 
 export const contract2ABI = (contract: Contracts) => {
+    if (Contracts.IERC20Metadata == contract) {
+        return IERC20METADATA.output.abi;
+    }
+
     if (Contracts.Opthy == contract) {
         return OPTHY.output.abi;
     }
