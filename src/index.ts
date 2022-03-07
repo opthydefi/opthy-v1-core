@@ -61,5 +61,5 @@ export const contract2ABI = (contract: Contracts) => {
         return OPTHYS.output.abi;
     }
 
-    throw new Error(`Contract name ${Contracts[contract]} not found`)
+    throw new Error(`Missing ABI for Contract ${Contracts[contract]}`)
 }
