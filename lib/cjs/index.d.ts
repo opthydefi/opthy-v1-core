@@ -2,41 +2,38 @@ export declare enum ChainId {
     RinkebyTestnet = 4,
     GodwokenTestnet = 71393
 }
-export declare const opthysAddress: (chainId: ChainId) => string;
-export declare const ERC20Whitelist: (chainId: ChainId) => Set<string>;
-export declare enum Contracts {
-    IERC20Metadata = 0,
-    Opthy = 1,
-    Opthys = 2
-}
-export declare const contract2ABI: (contract: Contracts) => ({
-    anonymous: boolean;
-    inputs: {
-        indexed: boolean;
-        internalType: string;
+export declare const ERC20: (chainId: ChainId) => {
+    address: Set<string>;
+    ABI: ({
+        anonymous: boolean;
+        inputs: {
+            indexed: boolean;
+            internalType: string;
+            name: string;
+            type: string;
+        }[];
         name: string;
         type: string;
-    }[];
-    name: string;
-    type: string;
-    outputs?: undefined;
-    stateMutability?: undefined;
-} | {
-    inputs: {
-        internalType: string;
+        outputs?: undefined;
+        stateMutability?: undefined;
+    } | {
+        inputs: {
+            internalType: string;
+            name: string;
+            type: string;
+        }[];
         name: string;
+        outputs: {
+            internalType: string;
+            name: string;
+            type: string;
+        }[];
+        stateMutability: string;
         type: string;
-    }[];
-    name: string;
-    outputs: {
-        internalType: string;
-        name: string;
-        type: string;
-    }[];
-    stateMutability: string;
-    type: string;
-    anonymous?: undefined;
-})[] | ({
+        anonymous?: undefined;
+    })[];
+};
+export declare const OpthyABI: (_chainId: ChainId) => ({
     inputs: {
         internalType: string;
         name: string;
@@ -82,3 +79,63 @@ export declare const contract2ABI: (contract: Contracts) => ({
     type: string;
     anonymous?: undefined;
 })[];
+export declare const Opthys: (chainId: ChainId) => {
+    address: string;
+    ABI: ({
+        anonymous: boolean;
+        inputs: {
+            indexed: boolean;
+            internalType: string;
+            name: string;
+            type: string;
+        }[];
+        name: string;
+        type: string;
+        outputs?: undefined;
+        stateMutability?: undefined;
+    } | {
+        inputs: {
+            internalType: string;
+            name: string;
+            type: string;
+        }[];
+        name: string;
+        outputs: {
+            internalType: string;
+            name: string;
+            type: string;
+        }[];
+        stateMutability: string;
+        type: string;
+        anonymous?: undefined;
+    })[];
+};
+export declare const OpthysView: (chainId: ChainId) => {
+    address: string;
+    ABI: ({
+        inputs: {
+            internalType: string;
+            name: string;
+            type: string;
+        }[];
+        stateMutability: string;
+        type: string;
+        name?: undefined;
+        outputs?: undefined;
+    } | {
+        inputs: never[];
+        name: string;
+        outputs: {
+            components: {
+                internalType: string;
+                name: string;
+                type: string;
+            }[];
+            internalType: string;
+            name: string;
+            type: string;
+        }[];
+        stateMutability: string;
+        type: string;
+    })[];
+};

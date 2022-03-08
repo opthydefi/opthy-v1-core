@@ -33,21 +33,21 @@ contract Opthy is ReentrancyGuard {
     //These fields are constant after creation
     
     //expiration contains the timestamp at which the opthy expires
-    uint256 public expiration;
+    uint256 public immutable expiration;
     
     //tokens used in the opthy
     //token0 is the token in which the fees are paid and the token that the liquidityProvider deposits
-    IERC20 public token0;
+    IERC20 public immutable token0;
     //token1 is the token that the swapper can swap for token0
-    IERC20 public token1;
+    IERC20 public immutable token1;
     
     //Inequality for checking that the contract contains at least the liquidityProvider's liquidity:
     // balanceT0 >= rT0 (at agreement)
     // rT1 * balanceT0 + rT0 * balanceT1 >= rT0*rT1 (until expiration)
     // Idea: say the opthy is a put opthy of 1 WETH for 1000DAI, then rT0=1000 and rT1=1
     //       (each value is in its decimals representation, so the same as would be memorized in its ERC20)
-    uint128 public rT0;
-    uint128 public rT1;
+    uint128 public immutable rT0;
+    uint128 public immutable rT1;
 
     event Created(address indexed creator, bool iProvideLiquidy, IERC20 feeToken, uint128 feeAmount);
     constructor(

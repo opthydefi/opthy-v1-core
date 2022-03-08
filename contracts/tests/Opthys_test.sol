@@ -3,6 +3,7 @@ pragma solidity ^0.8;
 
 // Run these tests with 'Solidity Unit Testing' plugin
 // https://remix-ide.readthedocs.io/en/latest/unittesting.html
+// As test directory remember to use: contracts/tests
 import "remix_tests.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol";
 import "../Opthys.sol";

@@ -16,7 +16,7 @@ import "./Opthy.sol";
 contract Opthys is ReentrancyGuard,Ownable,Pausable {
     using SafeERC20 for IERC20;
 
-    Opthy[] public opthys;
+    Opthy[] private opthys;
     
     mapping(IERC20 => tokenRule) private _tokenRules;
     
@@ -67,7 +67,7 @@ contract Opthys is ReentrancyGuard,Ownable,Pausable {
     }
     
     function setTokenRule(IERC20 token_, uint128 min_, uint128 max_) onlyOwner external {
-        //this call is will bubble up an exception if balanceOf method doesn't exist
+        //this call will bubble up an exception if balanceOf method doesn't exist
         token_.balanceOf(address(this));
         _tokenRules[token_] = tokenRule(min_,max_);
     }
@@ -83,5 +83,13 @@ contract Opthys is ReentrancyGuard,Ownable,Pausable {
 
     function unpause() onlyOwner external {
         _unpause();
+    }
+
+    function get(uint256 i) external view returns (Opthy) {
+        return opthys[i];
+    }
+
+    function length() external view returns (uint256) {
+        return opthys.length;
     }
 }
