@@ -5,7 +5,7 @@ pragma solidity ^0.8;
 // https://remix-ide.readthedocs.io/en/latest/unittesting.html
 import "remix_tests.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol";
-import "../contracts/Opthys.sol";
+import "../Opthys.sol";
 import "./Utils.sol";
 
 
